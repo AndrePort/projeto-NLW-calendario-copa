@@ -33,8 +33,9 @@ body {
     background-color: #121214;
     background-image: var(--card-bg-image);
     background-repeat: no-repeat;
-    background-position: center;
+    background-position-x: center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 body * {
@@ -52,7 +53,35 @@ header {
     text-align: center;
 }
 
-#cards {
+.title{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+
+    width: fit-content;
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    color:#e1e1e6;
+}
+
+.title h2 {
+    display: flex;
+    gap: 10px;
+
+    padding: 7px 15px;
+    border: 1px solid var(--card-title-border-color);
+    border-radius: 6px;
+    color: var(--card-color-primary);
+}
+
+.title h2 span{
+    color: #e1e1e6;
+    text-transform: uppercase;
+}
+
+#cards,
+#cards2 {
     display: flex;
     flex-direction: column;
     gap: 32px;
@@ -64,7 +93,6 @@ header {
     background: var(--card-bg-color);
     border-bottom: 2px solid var(--card-color-primary);
     border-radius: 6px;
-
 }
 
 .card h2 {
@@ -81,7 +109,7 @@ header {
     margin: auto;
     margin-bottom: 53px;
 
-    color: #F7DD43;
+    color:#F7DD43;
 }
 
 .card h2 span {
@@ -100,7 +128,7 @@ header {
 .card ul li {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:space-between;
 }
 
 .card ul li + li {
@@ -116,16 +144,19 @@ header {
 }
 
 .card ul li strong:hover,
-.card ul li img:hover {
+.card ul li img:hover,
+.title h2:hover {
     transform: scale(1.1);
 }
 
 .card ul li strong,
-.card ul li img {
+.card ul li img,
+.title h2 {
     transition: transform 0.3s;
 }
 
-.card {
+.card,
+.title {
     opacity: 0;
     animation: appear .2s forwards;
 }
@@ -141,9 +172,12 @@ header {
 }
 
 @media (min-width: 700px) {
-    #cards {
-        max-width: 670px;
+    #cards,
+    #cards2 {
+        max-width: 1035px;
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items:flex-start;
     }
 }
